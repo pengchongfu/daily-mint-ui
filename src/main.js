@@ -9,6 +9,7 @@ import VueResource from 'vue-resource'
 import App from './App'
 import NotFound from './components/NotFound'
 import Splash from './components/Splash'
+import Latest from './components/Latest'
 
 Vue.use(MintUI)
 Vue.use(VueRouter)
@@ -27,7 +28,12 @@ const routes = [
     path: '/',
     redirect: '/splash',
     component: App,
-    children: []
+    children: [
+      {
+        path: '/latest',
+        component: Latest
+      }
+    ]
   },
   {
     path: '*',

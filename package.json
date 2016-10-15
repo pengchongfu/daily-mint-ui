@@ -43,6 +43,7 @@
     "file-loader": "^0.9.0",
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
+    "http-proxy": "^1.15.1",
     "http-proxy-middleware": "^0.17.2",
     "json-loader": "^0.5.4",
     "opn": "^4.0.2",
@@ -54,6 +55,7 @@
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
-    "webpack-merge": "^0.14.1"
+    "webpack-merge": "^0.14.1",
+    "wurl": "^2.1.0"
   }
 }

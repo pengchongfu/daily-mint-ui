@@ -41,6 +41,9 @@ Object.keys(proxyTable).forEach(function (context) {
   app.use(proxyMiddleware(context, options))
 })
 
+var zhihuProxy = require('./zhihuProxy')
+app.use('/proxy', zhihuProxy)
+
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
 
