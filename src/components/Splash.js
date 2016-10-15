@@ -1,22 +1,17 @@
+import { splashGetImgSrc } from '../vuex/types'
+
 export default {
   name: 'Splash',
-  data () {
-    return {
-      loading: true,
-      imgSrc: ''
+  computed: {
+    imgSrc () {
+      return this.$store.state.Splash.imgSrc
     }
   },
   render (h) {
     let img = <img src={this.imgSrc} style="width: 100%"/>
-    return this.loading ? <mt-spinner type="double-bounce" color="#26a2ff" size={100}></mt-spinner> : img
+    return this.imgSrc ? img : <mt-spinner type="double-bounce" color="#26a2ff" size={100}></mt-spinner>
   },
   created () {
-    this.$http.get('/proxy?url=http://news-at.zhihu.com/api/4/start-image/1080*1776')
-    .then(res => res.json())
-    .then((res) => {
-      this.imgSrc = '/proxy?url=' + res.img
-      this.loading = false
-      // this.$router.push('/latest')
-    })
+    this.$store.dispatch(splashGetImgSrc)
   }
 }

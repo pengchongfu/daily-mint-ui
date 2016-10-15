@@ -11,9 +11,12 @@ import NotFound from './components/NotFound'
 import Splash from './components/Splash'
 import Latest from './components/Latest'
 
+Vue.use(VueResource)
+
+import store from './vuex'
+
 Vue.use(MintUI)
 Vue.use(VueRouter)
-Vue.use(VueResource)
 
 const routes = [
   {
@@ -49,6 +52,7 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
+  store,
   render (h) {
     return (
       <router-view></router-view>
