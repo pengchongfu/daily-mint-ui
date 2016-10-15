@@ -16,19 +16,18 @@ Vue.use(VueResource)
 
 const routes = [
   {
+    path: '/404',
+    component: NotFound
+  },
+  {
+    path: '/splash',
+    component: Splash
+  },
+  {
     path: '/',
     redirect: '/splash',
     component: App,
-    children: [
-      {
-        path: '404',
-        component: NotFound
-      },
-      {
-        path: 'splash',
-        component: Splash
-      }
-    ]
+    children: []
   },
   {
     path: '*',
