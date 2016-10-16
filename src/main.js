@@ -9,7 +9,6 @@ import VueResource from 'vue-resource'
 import App from './App'
 import NotFound from './components/NotFound'
 import Splash from './components/Splash'
-import Latest from './components/Latest'
 
 Vue.use(VueResource)
 
@@ -29,14 +28,11 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/splash',
-    component: App,
-    children: [
-      {
-        path: '/latest',
-        component: Latest
-      }
-    ]
+    redirect: '/splash'
+  },
+  {
+    path: '/index',
+    component: App
   },
   {
     path: '*',

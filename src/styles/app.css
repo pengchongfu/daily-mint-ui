@@ -9,3 +9,11 @@ body {
   height: 100%;
   margin: 0;
 }
+
+.fade-enter-active {
+  opacity: 0.25;
+  transition: opacity 3s;
+}
+.fade-enter {
+  opacity: 1;
+}
