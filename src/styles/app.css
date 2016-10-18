@@ -17,3 +17,7 @@ body {
 .fade-enter {
   opacity: 1;
 }
+
+.mint-cell-wrapper {
+  box-sizing: border-box;
+}

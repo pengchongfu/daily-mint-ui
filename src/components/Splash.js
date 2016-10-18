@@ -1,4 +1,4 @@
-import { splashGetImgSrc } from '../vuex/types'
+import { splashGetImgSrc, latestGetStories } from '../vuex/types'
 
 export default {
   name: 'Splash',
@@ -17,6 +17,7 @@ export default {
   },
   created () {
     this.$store.dispatch(splashGetImgSrc)
+    this.$store.dispatch(latestGetStories)
   },
   watch: {
     imgSrc (val, oldVal) {
