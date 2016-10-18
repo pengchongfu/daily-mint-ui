@@ -1,6 +1,6 @@
 <template>
   <div style="width: 100%; height: 100%;">
-    <mt-tab-container v-model="active" swipeable>
+    <mt-tab-container v-model="active" swipeable style="height: 100%; overflow: scroll; padding-bottom: 55px; box-sizing: border-box;">
       <mt-tab-container-item id="latest">
         <latest></latest>
       </mt-tab-container-item>
@@ -12,17 +12,17 @@
       </mt-tab-container-item>
     </mt-tab-container>
 
-    <mt-tabbar v-model="active">
+    <mt-tabbar v-model="active" :fixed="true">
       <mt-tab-item id="latest">
-        <img slot="icon">
+        <img slot="icon" src="./assets/today.svg">
         最新消息
       </mt-tab-item>
       <mt-tab-item id="before">
-        <img slot="icon">
+        <img slot="icon" src="./assets/before.svg">
         过往消息
       </mt-tab-item>
       <mt-tab-item id="themes">
-        <img slot="icon">
+        <img slot="icon" src="./assets/themes.svg">
         主题日报
       </mt-tab-item>
     </mt-tabbar>
