@@ -45,10 +45,10 @@ export default {
       }
     }
     return (
-      <div>
-        <mt-cell title={this.pickerString}>
-          <mt-button size="small" type="primary" nativeOn-click={this.openPicker}>选择日期</mt-button>
-        </mt-cell>
+      <div style="padding-top: 40px;">
+        <mt-header fixed title={this.pickerString}>
+          <mt-button size="small" type="primary" nativeOn-click={this.openPicker} slot="right">选择日期</mt-button>
+        </mt-header>
         {
           list
         }
