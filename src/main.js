@@ -9,6 +9,7 @@ import VueResource from 'vue-resource'
 import App from './App'
 import NotFound from './components/NotFound'
 import Splash from './components/Splash'
+import Detail from './components/Detail'
 
 Vue.use(VueResource)
 
@@ -33,6 +34,10 @@ const routes = [
   {
     path: '/index',
     component: App
+  },
+  {
+    path: '/detail',
+    component: Detail
   },
   {
     path: '*',
