@@ -1,4 +1,5 @@
 import { splashGetImgSrc, latestGetStories } from '../vuex/types'
+import Loading from './Loading'
 
 export default {
   name: 'Splash',
@@ -7,17 +8,16 @@ export default {
       return this.$store.state.Splash.imgSrc
     }
   },
+  components: {
+    Loading
+  },
   render (h) {
     let img = (
       <transition name="fade">
         <img src={this.imgSrc} style="width: 100%"/>
       </transition>
     )
-    return this.imgSrc ? img : (
-      <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
-        <mt-spinner type="double-bounce" color="#26a2ff" size={100}></mt-spinner>
-      </div>
-    )
+    return this.imgSrc ? img : <loading></loading>
   },
   created () {
     this.$store.dispatch(splashGetImgSrc)
