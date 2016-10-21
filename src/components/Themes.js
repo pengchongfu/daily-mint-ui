@@ -58,13 +58,17 @@ export default {
         }
       }
     }
-    return (
-      <div>
-        {
-          list
-        }
-      </div>
-    )
+    if (list.length) {
+      return (
+        <div>
+          {
+            list
+          }
+        </div>
+      )
+    } else {
+      return <loading></loading>
+    }
   },
   mounted () {
     this.$store.dispatch(themesGetList)

@@ -1,8 +1,12 @@
 import moment from 'moment'
 import { beforeGetStories } from '../vuex/types'
+import Loading from './Loading'
 
 export default {
   name: 'Before',
+  components: {
+    Loading
+  },
   data () {
     return {
       pickerValue: new Date(),
@@ -47,23 +51,27 @@ export default {
         )
       }
     }
-    return (
-      <div style="padding-top: 40px;">
-        <mt-header fixed title={this.pickerString}>
-          <mt-button size="small" type="primary" nativeOn-click={this.openPicker} slot="right">选择日期</mt-button>
-        </mt-header>
-        {
-          list
-        }
-        <mt-datetime-picker
-          ref="picker"
-          type="date"
-          value={this.pickerValue}
-          on-input={this.onInput}
-          endDate={new Date()}
-          on-confirm={this.confirm}>
-        </mt-datetime-picker>
-      </div>
-    )
+    if (list.length) {
+      return (
+        <div style="padding-top: 40px;">
+          <mt-header fixed title={this.pickerString}>
+            <mt-button size="small" type="primary" nativeOn-click={this.openPicker} slot="right">选择日期</mt-button>
+          </mt-header>
+          {
+            list
+          }
+          <mt-datetime-picker
+            ref="picker"
+            type="date"
+            value={this.pickerValue}
+            on-input={this.onInput}
+            endDate={new Date()}
+            on-confirm={this.confirm}>
+          </mt-datetime-picker>
+        </div>
+      )
+    } else {
+      return <loading></loading>
+    }
   }
 }

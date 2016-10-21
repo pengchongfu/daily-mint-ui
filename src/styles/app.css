@@ -18,3 +18,7 @@ body {
 .mint-cell-wrapper {
   box-sizing: border-box;
 }
+
+.mint-tab-container-wrap {
+  height: 100%;
+}

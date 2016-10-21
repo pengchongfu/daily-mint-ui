@@ -1,7 +1,11 @@
 import { latestGetStories } from '../vuex/types'
+import Loading from './Loading'
 
 export default {
   name: 'Latest',
+  components: {
+    Loading
+  },
   computed: {
     stories () {
       return this.$store.state.Latest.stories
@@ -22,13 +26,17 @@ export default {
         </mt-cell>
       )
     }
-    return (
-      <div>
-        {
-          list
-        }
-      </div>
-    )
+    if (list.length) {
+      return (
+        <div>
+          {
+            list
+          }
+        </div>
+      )
+    } else {
+      return <loading></loading>
+    }
   },
   mounted () {
     this.$store.dispatch(latestGetStories)
