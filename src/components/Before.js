@@ -30,6 +30,9 @@ export default {
     },
     confirm () {
       this.pickerValue = this.tempPickerValue
+    },
+    goToDetail (id) {
+      this.$router.push(`/detail?id=${id}`)
     }
   },
   render (h) {
@@ -37,7 +40,7 @@ export default {
     if (this.stories) {
       for (let i = 0; i < this.stories.length; i++) {
         list.push(
-          <mt-cell>
+          <mt-cell nativeOn-click={this.goToDetail.bind(null, this.stories[i].id)}>
             <img slot="icon" src={'/proxy?url=' + this.stories[i].images[0]} width="75" height="75"/>
             <span>{this.stories[i].title}</span>
           </mt-cell>
