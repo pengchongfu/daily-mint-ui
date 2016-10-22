@@ -18,6 +18,7 @@ export default {
   },
   render (h) {
     if (this.news) {
+      this.css.href = this.news.css[0]
       return (
         <div style="position: relative;">
           <div style={ `width: 100%; height: 200px; position: absolute; background: url(${this.news.image}) no-repeat center center; background-size: cover;` }></div>
@@ -30,15 +31,8 @@ export default {
   },
   created () {
     this.$store.dispatch(detailGetNews, this.$route.query.id)
-  },
-  watch: {
-    news (val) {
-      if (val) {
-        this.css.href = this.news.css[0]
-        this.css.rel = 'stylesheet'
-        document.getElementsByTagName('head')[0].appendChild(this.css)
-      }
-    }
+    this.css.rel = 'stylesheet'
+    document.getElementsByTagName('head')[0].appendChild(this.css)
   },
   beforeDestroy () {
     if (this.css.parentNode) {

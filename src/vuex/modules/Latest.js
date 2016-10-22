@@ -13,9 +13,12 @@ export default {
     }
   },
   actions: {
-    [types.latestGetStories] ({state, commit}) {
+    [types.latestGetStories] ({state, commit}, callback) {
       let timestamp = Date.now()
-      if (timestamp - state.timestamp < 1000 * 60 * 1) {
+      if (timestamp - state.timestamp < 1000 * 1) {
+        if (callback) {
+          callback()
+        }
         return
       }
       Vue.http.get('/proxy?url=http://news-at.zhihu.com/api/4/news/latest')
@@ -25,6 +28,9 @@ export default {
           stories: res.stories,
           timestamp: timestamp
         })
+        if (callback) {
+          callback()
+        }
       })
     }
   }

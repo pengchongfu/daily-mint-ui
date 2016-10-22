@@ -14,6 +14,11 @@ export default {
   methods: {
     goToDetail (id) {
       this.$router.push(`/detail?id=${id}`)
+    },
+    fresh (id) {
+      this.$store.dispatch(latestGetStories, () => {
+        this.$refs.loadmore.onTopLoaded(id)
+      })
     }
   },
   render (h) {
@@ -28,11 +33,14 @@ export default {
     }
     if (list.length) {
       return (
-        <div>
+        <mt-loadmore top-method={this.fresh} ref="loadmore">
+          <div slot="top" class="mint-loadmore-top">
+            <loading></loading>
+          </div>
           {
             list
           }
-        </div>
+        </mt-loadmore>
       )
     } else {
       return <loading></loading>

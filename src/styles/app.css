@@ -20,5 +20,5 @@ body {
 }
 
 .mint-tab-container-wrap {
-  height: 100%;
+  min-height: 100%;
 }
