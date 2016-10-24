@@ -1,5 +1,4 @@
 var httpProxy = require('http-proxy');
-var wurl = require('wurl');
 
 var proxy = httpProxy.createProxyServer({
   changeOrigin: true
@@ -7,8 +6,15 @@ var proxy = httpProxy.createProxyServer({
 
 module.exports = function (req, res) {
   var url = req.url.slice(6);
-  var path = wurl('path', url);
-  var target = url.slice(0, -path.length);
+  var s = url;
+  var index = 0;
+  for (var i = 0; i < 3; i++) {
+    var tmp = 1 + s.indexOf('/') 
+    index = index + tmp;
+    s = s.slice(tmp);
+  }
+  var target = url.slice(0, index);
+  var path = url.slice(index);
   req.url = path;
   proxy.web(req, res, {
     target: target,
