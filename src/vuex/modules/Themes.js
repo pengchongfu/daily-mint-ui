@@ -19,7 +19,7 @@ export default {
       if (state.themesList.length) {
         return
       }
-      Vue.http.get('/proxy?url=http://news-at.zhihu.com/api/4/themes')
+      Vue.http.get('/proxy?url=https://news-at.zhihu.com/api/4/themes')
       .then(res => res.json())
       .then((res) => {
         commit(types.themesGetList, {
@@ -31,7 +31,7 @@ export default {
       if (state.themesContentList[index]) {
         return
       }
-      Vue.http.get(`/proxy?url=http://news-at.zhihu.com/api/4/theme/${state.themesList[index].id}`)
+      Vue.http.get(`/proxy?url=https://news-at.zhihu.com/api/4/theme/${state.themesList[index].id}`)
       .then(res => res.json())
       .then((res) => {
         commit(types.themesGetContent, {

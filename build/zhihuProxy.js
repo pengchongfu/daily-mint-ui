@@ -1,7 +1,8 @@
 var httpProxy = require('http-proxy');
 
 var proxy = httpProxy.createProxyServer({
-  changeOrigin: true
+  changeOrigin: true,
+  secure: false
 });
 
 module.exports = function (req, res) {

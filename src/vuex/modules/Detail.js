@@ -15,7 +15,7 @@ export default {
       if (state.newsList[id]) {
         return
       }
-      Vue.http.get(`/proxy?url=http://news-at.zhihu.com/api/4/news/${id}`)
+      Vue.http.get(`/proxy?url=https://news-at.zhihu.com/api/4/news/${id}`)
       .then(res => res.json())
       .then((res) => {
         commit(types.detailGetNews, {

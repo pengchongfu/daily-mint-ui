@@ -12,11 +12,11 @@ export default {
   },
   actions: {
     [types.splashGetImgSrc] ({state, commit}) {
-      Vue.http.get('/proxy?url=http://news-at.zhihu.com/api/4/start-image/1080*1776')
+      Vue.http.get('/proxy?url=https://news-at.zhihu.com/api/7/prefetch-launch-images/1080*1920')
       .then(res => res.json())
       .then((res) => {
         commit(types.splashGetImgSrc, {
-          imgSrc: '/proxy?url=' + res.img
+          imgSrc: '/proxy?url=' + res.creatives[0].url
         })
       })
     }

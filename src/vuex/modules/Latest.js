@@ -21,7 +21,7 @@ export default {
         }
         return
       }
-      Vue.http.get('/proxy?url=http://news-at.zhihu.com/api/4/news/latest')
+      Vue.http.get('/proxy?url=https://news-at.zhihu.com/api/4/news/latest')
       .then(res => res.json())
       .then((res) => {
         commit(types.latestGetStories, {
