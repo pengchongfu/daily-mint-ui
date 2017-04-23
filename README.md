@@ -1,18 +1,16 @@
 # daily-mint-ui
 
-> zhihu daily with vue 2.0
+> 知乎日报移动版
+> [vue](http://vuejs.org/) + [mint-ui](http://mint-ui.github.io/#!/en)
 
-## Build Setup
+最新消息
 
-``` bash
-# install dependencies
-npm install
+![最新消息](images/latest.png)
 
-# serve with hot reload at localhost:8080
-npm run dev
+过往消息
 
-# build for production with minification
-npm run build
-```
+![过往消息](images/before.png)
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+主题日报
+
+![主题日报](images/themes.png)
